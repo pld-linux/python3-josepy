@@ -7,7 +7,7 @@
 Summary:	JOSE protocol implementation
 Name:		python-%{module}
 Version:	1.1.0
-Release:	4
+Release:	5
 License:	Apache v2.0
 Group:		Development/Languages/Python
 Source0:	https://files.pythonhosted.org/packages/source/j/josepy/josepy-%{version}.tar.gz
@@ -21,6 +21,7 @@ BuildRequires:	python-setuptools
 BuildRequires:	python3-devel >= 1:3.2
 BuildRequires:	python3-setuptools
 %endif
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
