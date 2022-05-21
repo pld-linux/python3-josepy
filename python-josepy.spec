@@ -3,15 +3,15 @@
 %bcond_without	python2		# Python 2.x module
 %bcond_without	python3		# Python 3.x module
 #
-%define 	module	josepy
+%define		module	josepy
 Summary:	JOSE protocol implementation
 Name:		python-%{module}
-Version:	1.10.0
-Release:	5
+Version:	1.13.0
+Release:	1
 License:	Apache v2.0
 Group:		Development/Languages/Python
 Source0:	https://files.pythonhosted.org/packages/source/j/josepy/josepy-%{version}.tar.gz
-# Source0-md5:	7c50e3668a273a5043792f2d2bc392bb
+# Source0-md5:	d0f8dc9ffbf3ce0bd9c40e5ec1bf3516
 URL:		https://josepy.readthedocs.io/en/latest/
 %if %{with python2}
 BuildRequires:	python-devel >= 1:2.6
