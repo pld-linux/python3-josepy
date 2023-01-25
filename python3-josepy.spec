@@ -21,6 +21,7 @@ BuildRequires:	python3-cryptography >= 1.5
 BuildRequires:	python3-pyOpenSSL >= 0.13
 BuildRequires:	python3-pytest >= 2.8.0
 BuildRequires:	python3-pytest-cov
+BuildRequires:	python3-pytest-flake8 >= 0.5
 %endif
 %if %{with doc}
 BuildRequires:	python3-Sphinx >= 1.0
@@ -57,7 +58,7 @@ Dokumentacja API modułu josepy.
 
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
-PYTEST_PLUGINS="pytest_cov.plugin" \
+PYTEST_PLUGINS="pytest_cov.plugin,pytest_flake8" \
 PYTHONPATH=$(pwd)/src \
 %{__python3} -m pytest tests
 %endif
