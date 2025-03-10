@@ -8,7 +8,7 @@ Summary:	JOSE protocol implementation
 Summary(pl.UTF-8):	Implementacja protokołu JOSE
 Name:		python3-%{module}
 Version:	1.13.0
-Release:	2
+Release:	3
 License:	Apache v2.0
 Group:		Development/Languages/Python
 Source0:	https://files.pythonhosted.org/packages/source/j/josepy/josepy-%{version}.tar.gz
