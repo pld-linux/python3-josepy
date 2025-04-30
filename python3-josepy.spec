@@ -7,15 +7,16 @@
 Summary:	JOSE protocol implementation
 Summary(pl.UTF-8):	Implementacja protokołu JOSE
 Name:		python3-%{module}
-Version:	1.13.0
-Release:	4
+Version:	2.0.0
+Release:	1
 License:	Apache v2.0
 Group:		Development/Languages/Python
 Source0:	https://files.pythonhosted.org/packages/source/j/josepy/josepy-%{version}.tar.gz
-# Source0-md5:	d0f8dc9ffbf3ce0bd9c40e5ec1bf3516
+# Source0-md5:	dd79ee5377afe136643fc6f7cda6e5f8
 URL:		https://josepy.readthedocs.io/en/latest/
+BuildRequires:	python3-build
 BuildRequires:	python3-devel >= 1:3.6
-BuildRequires:	python3-setuptools >= 1.0
+BuildRequires:	python3-installer
 %if %{with tests}
 BuildRequires:	python3-cryptography >= 1.5
 BuildRequires:	python3-pyOpenSSL >= 0.13
@@ -54,7 +55,7 @@ Dokumentacja API modułu josepy.
 %setup -q -n %{module}-%{version}
 
 %build
-%py3_build
+%py3_build_pyproject
 
 %if %{with tests}
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 \
@@ -72,7 +73,7 @@ PYTHONPATH=$(pwd)/src \
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py3_install
+%py3_install_pyproject
 
 %{__mv} $RPM_BUILD_ROOT%{_bindir}/jws{,-3}
 ln -sf jws-3 $RPM_BUILD_ROOT%{_bindir}/jws
@@ -86,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/jws
 %attr(755,root,root) %{_bindir}/jws-3
 %{py3_sitescriptdir}/josepy
-%{py3_sitescriptdir}/josepy-%{version}-py*.egg-info
+%{py3_sitescriptdir}/josepy-%{version}.dist-info
 
 %files apidocs
 %defattr(644,root,root,755)
