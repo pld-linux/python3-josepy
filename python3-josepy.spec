@@ -31,6 +31,8 @@ BuildRequires:	python3-cryptography >= 1.5
 BuildRequires:	python3-pyOpenSSL >= 0.13
 BuildRequires:	python3-sphinx_rtd_theme >= 1.0
 %endif
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 2.044
 Requires:	python3-modules >= 1:3.9.2
 Conflicts:	python-josepy < 1.13.0-2
 BuildArch:	noarch
