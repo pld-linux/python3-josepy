@@ -15,8 +15,9 @@ Source0:	https://files.pythonhosted.org/packages/source/j/josepy/josepy-%{versio
 # Source0-md5:	458e452aba5afc2436761c9acddde344
 URL:		https://josepy.readthedocs.io/en/latest/
 BuildRequires:	python3-build
-BuildRequires:	python3-devel >= 1:3.6
+BuildRequires:	python3-devel >= 1:3.9.2
 BuildRequires:	python3-installer
+BuildRequires:	python3-poetry-core >= 2.2.0
 %if %{with tests}
 BuildRequires:	python3-cryptography >= 1.5
 BuildRequires:	python3-pyOpenSSL >= 0.13
@@ -25,11 +26,12 @@ BuildRequires:	python3-pytest-cov
 BuildRequires:	python3-pytest-flake8 >= 0.5
 %endif
 %if %{with doc}
-BuildRequires:	python3-Sphinx >= 1.0
+BuildRequires:	python3-Sphinx >= 4.3.0
 BuildRequires:	python3-cryptography >= 1.5
 BuildRequires:	python3-pyOpenSSL >= 0.13
 BuildRequires:	python3-sphinx_rtd_theme >= 1.0
 %endif
+Requires:	python3-modules >= 1:3.9.2
 Conflicts:	python-josepy < 1.13.0-2
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -84,11 +86,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc CHANGELOG.rst README.rst
-%attr(755,root,root) %{_bindir}/jws
 %attr(755,root,root) %{_bindir}/jws-3
+%{_bindir}/jws
 %{py3_sitescriptdir}/josepy
 %{py3_sitescriptdir}/josepy-%{version}.dist-info
 
 %files apidocs
 %defattr(644,root,root,755)
-%doc docs/_build/html/{_static,api,man,*.html,*.js}
+%doc docs/_build/html/{_modules,_static,api,man,*.html,*.js}
